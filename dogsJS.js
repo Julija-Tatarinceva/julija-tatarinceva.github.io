@@ -18,18 +18,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
     pei.addEventListener('click', function(){ Show(2, 1)});
     shep.addEventListener('click', function(){ Show(3, 0)});
     papillon.addEventListener('click', function(){ Show(3, 1)});
-    mail_domain = document.getElementById('e-mail-list');
-    mail_local = document.getElementById('e-mail');
-    warningPlace = document.getElementById('warning');
-    numberInput = document.getElementById('amount-of-dogs')
-    mail_local.addEventListener('input', function(){ checkData(0)});
-    numberInput.addEventListener('input', function(){ checkData(1)});
-    for (let i in mailAd) {
-		let opt = document.createElement('option'); // create a new option		
-		opt.innerHTML = mailAd[i]; // fill the text with the name
-		opt.value = mailAd[i]; // fill the value with the name
-		mail_domain.appendChild(opt); // add newly created option to the select
-	}
+        // Get elements after the document has loaded
+        var eyesOpening = document.getElementById('eyes-opening').innerHTML;
+        var eyesClosing = document.getElementById('eyes-closing').innerHTML;
+        var opened = false;
+        document.getElementById('light-mode-button').addEventListener('click', function() {
+            // Trigger eye and pupil animations
+            if(!opened){
+                document.getElementById('eyes').innerHTML = eyesOpening;
+                opened = true;
+            }
+            else if(opened){
+                document.getElementById('eyes').innerHTML = eyesClosing;
+                opened = false;
+            }
+        });
 });
 
 //from this point mostly plain document object model is used
@@ -76,16 +79,16 @@ function checkData(suspect){
 }
 
 //here mostly jquery is used
-var hellspawnSpawned = false;
-$(window).scroll(function(e) {
-    var distanceScrolled = $(this).scrollTop();
-    $('.banner').css({"filter" : "blur("+distanceScrolled/60+"px)"});
-    if(distanceScrolled>300 && !hellspawnSpawned){
-        hellspawnSpawned = true;
-        var newMarquee = $('<marquee direction="right" height="80" width="105%"><img src="images/doggy.gif" width="100" height="100"></marquee>');  //create elements w/ jquery
-        $( ".navbar-nav" ).append(newMarquee); //append new element
-    }
-});
+// var hellspawnSpawned = false;
+// $(window).scroll(function(e) {
+//     var distanceScrolled = $(this).scrollTop();
+//     $('.banner').css({"filter" : "blur("+distanceScrolled/60+"px)"});
+//     if(distanceScrolled>300 && !hellspawnSpawned){
+//         hellspawnSpawned = true;
+//         var newMarquee = $('<marquee direction="right" height="80" width="105%"><img src="images/doggy.gif" width="100" height="100"></marquee>');  //create elements w/ jquery
+//         $( ".navbar-nav" ).append(newMarquee); //append new element
+//     }
+// });
 async function Show(ind, side){ //side 0 = left, side 1 = right
     let flag = 20;
     for(let i = 0; i<4; i++){
