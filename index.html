@@ -13,8 +13,31 @@
 </head>
 
 <body>
+    <script>
+        $(function() {
+           $("#includeHtml").load("partials/navbar.html");
+        });
+     </script>
+   <div id="includeHtml"></div>
     <div id="page-container">
         <div class="banner"> 
+            <div class="power-button-div">
+                <button class="button " id="light-mode-button">P</button>
+                </div>
+            <div id="eyes">
+                <svg width="200" height="50" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Left eye -->
+                    <g transform="rotate(10, 60, 50)">
+                        <path id="leftEye" d="M 30 50 Q 60 55 90 50 Q 60 60 30 50" fill="none" stroke="black" stroke-width="2">
+                        </path>
+                    </g> 
+                <!-- Right eye -->
+                <g transform="rotate(-10, 140, 50)">
+                    <path id="rightEye" d="M 110 50 Q 140 55 170 50 Q 140 60 110 50" fill="none" stroke="black" stroke-width="2">      
+                    </path>
+                </g>
+              </svg>
+            </div>
             <img src="images/avatar.png" class="avatar" alt="Avatar">
             <div class="vertical-line"></div>
             <div class="interests">
@@ -35,23 +58,7 @@
                       </svg>
                 </ul>
             </div>
-            <div class="power-button-div">
-                <button class="button " id="light-mode-button">P</button>
-                </div>
-            <div id="eyes">
-                <svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-                <!-- Left eye -->
-                    <g transform="rotate(10, 60, 50)">
-                        <path id="leftEye" d="M 30 50 Q 60 55 90 50 Q 60 60 30 50" fill="none" stroke="black" stroke-width="2">
-                        </path>
-                    </g> 
-                <!-- Right eye -->
-                <g transform="rotate(-10, 140, 50)">
-                    <path id="rightEye" d="M 110 50 Q 140 55 170 50 Q 140 60 110 50" fill="none" stroke="black" stroke-width="2">      
-                    </path>
-                </g>
-              </svg>
-            </div>
+            
             <div class="banner-quote" >
                 <figure>
                 <blockquote class="blockquote">
@@ -62,7 +69,7 @@
         </div>  
         
         <div id="eyes-closing">
-            <svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+            <svg width="200" height="50" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
             <!-- Left eye -->
                 <g transform="rotate(10, 60, 50)">
                     <path id="leftEye" d="M 30 50 Q 60 35 90 50 Q 60 65 30 50" fill="none" stroke="black" stroke-width="2">
@@ -91,7 +98,7 @@
         </div>
     
           <div id="eyes-opening">
-            <svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+            <svg width="200" height="50" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
             <!-- Left eye -->
                 <g transform="rotate(10, 60, 50)">
                     <path id="leftEye" d="M 30 50 Q 60 35 90 50 Q 60 65 30 50" fill="none" stroke="black" stroke-width="2">
@@ -119,7 +126,7 @@
     </div>
 
 <section class="content">
-    <h1>When creativity meets programming...</h1>
+    <h1>When ADHD meets programming...</h1>
     <a href = "gaming.html">EEEEEEEEEE</a>
 <article class="main-container section">
     <button type="button" class="btn" id="sheltie"></button>

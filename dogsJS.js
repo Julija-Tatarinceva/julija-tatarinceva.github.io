@@ -36,12 +36,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 //from this point mostly plain document object model is used
-function checkBeforeSubmission(){
-    checkData(0);
-    checkData(1);
-    if(warnedN || warnedE)return false;
-    return true;
-}
 function checkData(suspect){
     let warning, warningText, classP;
     if(!suspect){
@@ -104,8 +98,8 @@ function createPaw(x, y, angle) {
 
     setTimeout(() => {
         svgElement.style.opacity = 0; // Fade out
-    }, 3000); // Start fading after 1 second
-    // Remove paw print after 2 seconds
+    }, 3000); // Start fading
+    // Remove paw print
     setTimeout(() => {
         svgElement.remove();
     }, 5000);
