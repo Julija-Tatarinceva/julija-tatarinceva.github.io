@@ -78,6 +78,106 @@ function checkData(suspect){
     }
 }
 
+let pawSVG = `<svg width="70" height="70" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Large pad -->
+                        <circle cx="60" cy="50" r="19" fill="salmon"/>
+                        <!-- Toe beans -->
+                        <circle cx="30" cy="32" r="10" fill="salmon"/>
+                        <circle cx="48" cy="15" r="10" fill="salmon"/>
+                        <circle cx="72" cy="15" r="10" fill="salmon"/>
+                        <circle cx="90" cy="32" r="10" fill="salmon"/>
+                      </svg>`;
+
+function createPaw(x, y, angle) {
+    let div = document.createElement("div");
+    div.innerHTML = pawSVG;
+    let svgElement = div.firstChild;
+    svgElement.style.position = "absolute";
+    svgElement.style.left = x + "px";
+    svgElement.style.top = y + "px";
+    svgElement.style.transform = `rotate(${angle}deg)`;
+    svgElement.style.zIndex = "-1"; // Keep in background
+    svgElement.style.transition = "opacity 3s"; // Set fade-out transition
+    svgElement.style.opacity = 1; // Initial opacity
+    document.body.appendChild(svgElement);
+    
+
+    setTimeout(() => {
+        svgElement.style.opacity = 0; // Fade out
+    }, 3000); // Start fading after 1 second
+    // Remove paw print after 2 seconds
+    setTimeout(() => {
+        svgElement.remove();
+    }, 5000);
+}
+
+let startX1 = 200, startY1 = 300;
+let startX2 = 235, startY2 = 305;
+let randomX = 1;
+let randomY = 1;
+let step = 50;
+let toggle = true;
+if(randomX < 0) toggle = false
+else toggle = true;
+
+setInterval(() => {
+    let screenWidth = window.innerWidth;
+    let screenHeight = window.innerHeight;
+    let dx = step * Math.cos(Math.atan2(-step / 2, step)) * randomX;
+    let dy = step * Math.sin(Math.atan2(-step / 2, step)) * randomY;
+    let angle = Math.atan2(dy, dx) * (180 / Math.PI);
+    angle += 90; // Adjust by +90 degrees for correct alignment
+
+     // Distance between footprints (fixed stance)
+     let widthOffset = 5; // Sideways offset (fixed distance)
+
+    // Check boundaries & reverse if necessary
+    if (startX1 + dx < 0 || startX1 + dx > screenWidth || startX2 + dx < 0 || startX2 + dx > screenWidth) {
+        dx *= -1;
+        randomX *= -1;
+    }
+    if (startY1 + dy < 0 || startY1 + dy > screenHeight || startY2 + dy < 0 || startY2 + dy > screenHeight) {
+        dy *= -1;
+        randomY *= -1;
+    }
+    // Alternate paw placement with a wider stance
+    if (!toggle) {
+        createPaw(startX1 + widthOffset * Math.sin(angle * (Math.PI / 180)), 
+                  startY1 - widthOffset * Math.cos(angle * (Math.PI / 180)), 
+                  angle);
+    } else {
+        createPaw(startX2 - widthOffset * Math.sin(angle * (Math.PI / 180)), 
+                  startY2 + widthOffset * Math.cos(angle * (Math.PI / 180)), 
+                  angle);
+    }
+
+    // Move both paws forward **together** to prevent spreading
+    startX1 += dx;
+    startY1 += dy;
+    startX2 += dx;
+    startY2 += dy;
+
+    toggle = !toggle;
+}, 700);
+function adjustDirectionIfNeeded(x, y, angle) {
+    let buffer = 20; // How close to the edge before changing direction
+    // If moving out of bounds, adjust the angle
+    if (x < buffer || x > window.innerWidth - buffer) {
+        angle = 180 - angle; // Reflect horizontally
+    }
+    if (y < buffer || y > window.innerHeight - buffer) {
+        angle = -angle; // Reflect vertically
+    }
+
+    return angle;
+}
+setInterval(() => {
+    randomX = Math.random() * 2 - 1;
+    do {
+        randomY = Math.random() * 2 -1; // Generate another number
+    } while (Math.abs(randomY - randomX) < 0.4 || Math.abs(randomY - randomX) > 0.5); // Repeat if too close
+}, 6000);
+
 //here mostly jquery is used
 // var hellspawnSpawned = false;
 // $(window).scroll(function(e) {

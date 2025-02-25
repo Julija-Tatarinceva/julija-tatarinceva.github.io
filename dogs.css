@@ -33,12 +33,12 @@
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.23);
     top: 30%;
 }
-#page-container{
+/* #page-container{
     background-image:url("images/website-background.png");
     background-size: cover;
     background-repeat:no-repeat; 
     padding-top: 10%;
-}
+} */
 #eyes{
     border-radius: 50%;
     box-sizing: border-box;
@@ -55,6 +55,7 @@ li {
 }
 body{
     background-color: pink;
+    position: relative;
 }
 .content{
     padding-left: 17vw;
