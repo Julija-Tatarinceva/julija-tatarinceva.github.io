@@ -13,24 +13,19 @@
 </head>
 
 <body>
+    <script>
+        $(function() {
+           $("#includeHtml").load("partials/navbar.html");
+        });
+     </script>
+   <div id="includeHtml"></div>
     <div id="page-container">
         <div class="banner"> 
-            <img src="images/avatar.png" class="avatar" alt="Avatar">
-            <div class="vertical-line"></div>
-            <div class="interests">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a href="#You">Game development</a></li>
-                    <li class="nav-item"><a href="#Him">Website development</a></li>
-                    <li class="nav-item"><a href="#YouAndHim">Automation</a></li>
-                    <li class="nav-item"><a href="#advantages">Writing</a></li>
-                    <li class="nav-item"><a href="#request">Testing</a></li>
-                </ul>
-            </div>
             <div class="power-button-div">
                 <button class="button " id="light-mode-button">P</button>
                 </div>
             <div id="eyes">
-                <svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                <svg width="200" height="50" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
                 <!-- Left eye -->
                     <g transform="rotate(10, 60, 50)">
                         <path id="leftEye" d="M 30 50 Q 60 55 90 50 Q 60 60 30 50" fill="none" stroke="black" stroke-width="2">
@@ -43,6 +38,27 @@
                 </g>
               </svg>
             </div>
+            <img src="images/avatar.png" class="avatar" alt="Avatar">
+            <div class="vertical-line"></div>
+            <div class="interests">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#You">Game development</a></li>
+                    <li class="nav-item"><a href="#Him">Website development</a></li>
+                    <li class="nav-item"><a href="#YouAndHim">Automation</a></li>
+                    <li class="nav-item"><a href="#advantages">Writing</a></li>
+                    <li class="nav-item"><a href="#request">Testing</a></li>
+                    <svg width="70" height="70" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Large pad -->
+                        <circle cx="60" cy="50" r="19" fill="salmon"/>
+                        <!-- Toe beans -->
+                        <circle cx="30" cy="32" r="10" fill="salmon"/>
+                        <circle cx="48" cy="15" r="10" fill="salmon"/>
+                        <circle cx="72" cy="15" r="10" fill="salmon"/>
+                        <circle cx="90" cy="32" r="10" fill="salmon"/>
+                      </svg>
+                </ul>
+            </div>
+            
             <div class="banner-quote" >
                 <figure>
                 <blockquote class="blockquote">
@@ -53,7 +69,7 @@
         </div>  
         
         <div id="eyes-closing">
-            <svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+            <svg width="200" height="50" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
             <!-- Left eye -->
                 <g transform="rotate(10, 60, 50)">
                     <path id="leftEye" d="M 30 50 Q 60 35 90 50 Q 60 65 30 50" fill="none" stroke="black" stroke-width="2">
@@ -82,7 +98,7 @@
         </div>
     
           <div id="eyes-opening">
-            <svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+            <svg width="200" height="50" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
             <!-- Left eye -->
                 <g transform="rotate(10, 60, 50)">
                     <path id="leftEye" d="M 30 50 Q 60 35 90 50 Q 60 65 30 50" fill="none" stroke="black" stroke-width="2">
@@ -110,7 +126,7 @@
     </div>
 
 <section class="content">
-    <h1>When creativity meets programming...</h1>
+    <h1>When ADHD meets programming...</h1>
     <a href = "gaming.html">EEEEEEEEEE</a>
 <article class="main-container section">
     <button type="button" class="btn" id="sheltie"></button>
