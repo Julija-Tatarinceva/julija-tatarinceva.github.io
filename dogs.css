@@ -101,8 +101,6 @@ p:not(blockquote p){
     text-indent: 2vw;
     font-size: 13px;
 }
-
-
 .banner{
     height: 80vh;
     width: 201.5vh;
@@ -164,9 +162,10 @@ div[class*="hidden"]{
     background-position: -324px -350px;
     background-size: 778px 600px;
 }
-#corgi{
-    background-position: -300px -30px;
-    background-size: 810px 630px;
+#horseGame{
+    background-position: -315px -150px;
+    background-size: 900px 200px;
+    /* background-image: url(images/horseGame.png); */
 }
 #east-european-shepherd{
     background-size: 690px 580px;
