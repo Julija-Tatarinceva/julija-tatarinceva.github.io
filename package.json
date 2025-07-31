@@ -13,7 +13,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "npm run build && cp -r dist/spa/* . && rm -rf dist && git add . && git commit -m \"Deploy\" && git push",
+    "deploy": "npm run build && robocopy dist\\spa . /E && rmdir /S /Q dist && echo.>.nojekyll && git add . && git commit -m \"Deploy\" && git push",
     "dev": "vite",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build",
