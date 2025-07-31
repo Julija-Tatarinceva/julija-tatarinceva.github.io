@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { AnimatedBackground } from "@/components/animated-background"
-import { ArrowLeft, ExternalLink, Github, Calendar, Target, Trophy, Zap } from "lucide-react"
+import { ArrowLeft, ExternalLink, Github, Calendar, Target, Trophy, Zap, Image, Play } from "lucide-react"
 import { getProjectById } from "@shared/projects"
 
 export default function ProjectDetail() {
@@ -85,11 +85,17 @@ export default function ProjectDetail() {
             {project.links && (
               <div className="flex flex-wrap justify-center gap-4">
                 {project.links.map((link, index) => (
-                  <Button key={index} className="flex items-center gap-2">
+                  <Button asChild  key={index} className="flex items-center gap-2">
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                     {link.type === 'github' && <Github className="w-4 h-4" />}
                     {link.type === 'external' && <ExternalLink className="w-4 h-4" />}
                     {link.type === 'demo' && <Target className="w-4 h-4" />}
                     {link.title}
+                    </a>
                   </Button>
                 ))}
               </div>
@@ -192,6 +198,65 @@ export default function ProjectDetail() {
               </Card>
             )}
           </div>
+
+          {/* Screenshots and Demo */}
+          {(project.screenshots || project.videoDemo) && (
+            <div className="mt-8">
+              <Card className="bg-background/50 backdrop-blur-sm border-border/40">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Image className="w-5 h-5 text-primary" />
+                    Project Media
+                  </CardTitle>
+                  <CardDescription>Screenshots and demonstrations</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {project.videoDemo && (
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Play className="w-4 h-4 text-accent" />
+                        <span className="font-medium">Video Demo</span>
+                      </div>
+                      <div className="aspect-video rounded-lg overflow-hidden bg-muted/50 border border-border/40">
+                        <video
+                          controls
+                          className="w-full h-full object-cover"
+                          poster="placeholder.svg"
+                        >
+                          <source src={project.videoDemo} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    </div>
+                  )}
+
+                  {project.screenshots && project.screenshots.length > 0 && (
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Image className="w-4 h-4 text-primary" />
+                        <span className="font-medium">Screenshots</span>
+                      </div>
+                      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                        {project.screenshots.map((screenshot, index) => (
+                          <div key={index} className="aspect-video rounded-lg overflow-hidden bg-muted/50 border border-border/40 hover:scale-105 transition-transform cursor-pointer">
+                            <img
+                              src={screenshot}
+                              alt={`${project.title} screenshot ${index + 1}`}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                const img = e.target as HTMLImageElement;
+                                img.src = 'placeholder.svg';
+                              }}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
+          )}
 
           {/* Back to Portfolio */}
           <div className="text-center mt-12">
