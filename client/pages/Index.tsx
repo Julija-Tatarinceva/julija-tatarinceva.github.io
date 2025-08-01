@@ -80,11 +80,16 @@ export default function Index() {
       <section className="relative z-10 py-20 px-4">
         <div className="container mx-auto text-center max-w-4xl">
           <div className="mb-8">
-            <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_200%] animate-pulse p-1">
-              <div className="w-full h-full rounded-full bg-background flex items-center justify-center text-4xl font-bold text-primary">
-                JT
+            <div className="w-64 h-64 mx-auto mb-6 rounded-full bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_200%] animate-pulse-opacity p-1">
+              <div className="w-full h-full rounded-full bg-background overflow-hidden flex items-center justify-center">
+                <img
+                  src="Julija.jpg"
+                  alt="Julija"
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
             </div>
+
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
               Jūlija <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Tatarinceva</span>
             </h1>
@@ -113,7 +118,7 @@ export default function Index() {
       <section className="relative z-10 py-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-4 mb-8 bg-background/50 backdrop-blur-sm">
+            <TabsList className="sticky top-0 z-50 grid w-full grid-cols-4 mb-8 bg-background/50 backdrop-blur-sm">
               <TabsTrigger value="gamedev" className="flex items-center gap-2">
                 <Gamepad2 className="w-4 h-4" />
                 Game Development
