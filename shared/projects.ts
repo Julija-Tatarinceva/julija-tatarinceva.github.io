@@ -103,7 +103,7 @@ export const projects: Project[] = [
     description: "Touch-based action game where players eliminate enemies using a saw attached to their finger.",
     fullDescription: "An intense mobile action game featuring unique touch-based combat mechanics. Players control a character with a saw attached to their finger, using touch gestures to slice through enemies in fast-paced combat scenarios. The game emphasizes quick reflexes and strategic positioning.",
     stats: "Touch Controls",
-    tech: ["Unity", "Touch Input", "Mobile Gaming", "Physics Simulation", "Particle Effects"],
+    tech: ["Unity", "Touch Input", "Mobile Gaming"],
     category: "gamedev",
     challenges: [
       "Implementing precise touch-to-game-world translation",
